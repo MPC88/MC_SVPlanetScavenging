@@ -260,7 +260,7 @@ namespace MC_SVPlanetScavenging
                 target = owner.gameObject.transform.position;
 
                 if (Vector3.Distance(gameObject.transform.position, target) < 2f)
-                    Finish();
+                    DockOrDie(true, false);
             }
             else
             {
@@ -286,6 +286,7 @@ namespace MC_SVPlanetScavenging
                             special = true;
                             SideInfo.AddMsg("Drone " + ae.ss.activeEquips.IndexOf(ae) + "-" + this.id + " telemetry indicates a valuable find.");
                         }
+                        pd.scavenged = true;
                         returning = true;
                     }
                 }
@@ -315,11 +316,6 @@ namespace MC_SVPlanetScavenging
             baseSpeed = (60 + ae.rarity * 5) + speedBouns;
         }
 
-        private void Finish()
-        {
-            pd.scavenged = true;
-            DockOrDie(true, false);
-        }
 
         public void DockOrDie(bool giveFeedback, bool dead)
         {
