@@ -22,7 +22,7 @@ The probe drone bays provide scavenging loot bonuses.
   
 - Explorer level buffs quality.  You know where to focus your scans.  
 - Tech level reduces risk.  
-- Tech level applies to accelerate the scanning phase, same debris field salvaging.  It is compared against sector level.  
+- Tech level applies to accelerate the scanning phase, same as debris field salvaging.  Difficulty of the planet is based on sector level, as opposed to debris fields which have their own levels.  
 - Drone speed buffs apply to accelerate the retrieval phase.  They go faster.  
 - Drone hp bonus buffs provide a chance to save if the risk roll fails.  The save chance is BonusHP/2 percent chance, so the T3 ship enhancement of +60hp = 30% save.  
 - As scavenging loot drops, all scavenging loot bonuses and skills apply (e.g. engineering skill tree).  
