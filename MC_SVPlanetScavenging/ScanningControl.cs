@@ -53,7 +53,7 @@ namespace MC_SVPlanetScavenging
 					{
 						if (pdExisting.timeScanned > 0)
 						{
-							if (pdExisting.timeScanned + (scavengeCD * 60f) <= GameData.timePlayed)
+							if (pdExisting.timeScanned + (scavengeCD * 60f) <= GameData.timePlayed && scanning == null)
 							{
 								Main.data.planetDatas.Remove(pdExisting);
 								StartScan(planetControl.transform, pd);
@@ -127,7 +127,7 @@ namespace MC_SVPlanetScavenging
 			float quality = UnityEngine.Random.Range(0.1f, 0.35f);
 			float exp = UnityEngine.Random.Range(0f, PChar.Explorer(true) / 100f);
 
-			float risk = 0.5f;
+			float risk = UnityEngine.Random.Range(0.1f, 0.9f);
 			float tec = UnityEngine.Random.Range(0f, PChar.TechLevel() / 100f);
 			scanning.quality = quality + exp;
 			scanning.risk = risk - tec >= 0 ? risk - tec : 0;
