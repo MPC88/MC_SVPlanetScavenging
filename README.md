@@ -12,8 +12,10 @@ Hover over a planet and scan it using the scavenge keybind.  Quality indicates t
   
 Activate probe drone bays to send drones to a scanned planet.  Each drone that makes it back counts as a debris field of level equal to the sector level.  If a drone dies due to failed risk roll, you lose the parts and get nothing (launching a probe drone costs 5 parts).  
   
-There's a flat 1 hour cooldown on scavenging a planet.  
+There's a flat 1 hour cooldown on scavenging a planet.  A planet is considered scavenged if any drone succeeeds and begins the return trip to your ship.  This means if they are all destroyed due to high risk, you can try again.  It also means if 1 out of 10 launched drones succeeds or you leave the sector before the drones return to your ship and drop loot, you will need to wait for the cooldown period.  
 
+Note that quality and risk levels will reset for every scan (i.e. you wont find a golden world to farm every hour).  
+  
 Probe drones cannot be recalled, but will return to your ship as long as you stay in sector.  Pressing the activate key while drones are deployed will provide a status report in the bottom-right of the screen.  The same message area is used to highlight any lost drones or special finds.  
 
 The probe drone bays provide scavenging loot bonuses.  
@@ -24,6 +26,8 @@ The probe drone bays provide scavenging loot bonuses.
 - Drone speed buffs apply to accelerate the retrieval phase.  They go faster.  
 - Drone hp bonus buffs provide a chance to save if the risk roll fails.  The save chance is BonusHP/2 percent chance, so the T3 ship enhancement of +60hp = 30% save.  
 - As scavenging loot drops, all scavenging loot bonuses and skills apply (e.g. engineering skill tree).  
+
+Note that buffs from explorer (to quality) and tech knowledge (to risk reduction) are still randomised.  Your level just dictates the maximum bonus, but you can still have a bad day.  
   
 Install  
 =======  
