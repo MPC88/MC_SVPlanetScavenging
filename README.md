@@ -10,7 +10,7 @@ Adds probe drone bays and planet scanning for scavenging.
   
 Hover over a planet and scan it using the scavenge keybind.  Quality indicates the change of hidden debris field level loot.  Risk indicates the chance of loosing a drone to dangers.  
   
-Activate probe drone bays to send drones to a scanned planet.  Each drone that makes it back counts as a debris field of level equal to the sector level.  If a drone dies due to failed risk roll, you lose the parts and get nothing (launching a probe drone costs 5 parts).  
+Activate probe drone bays to send drones to a scanned planet, starting from time of scanning.  Each drone that makes it back counts as a debris field of level equal to the sector level.  If a drone dies due to failed risk roll, you lose the parts and get nothing (launching a probe drone costs 5 parts).  
   
 There's a flat 1 hour cooldown on scavenging a planet.  A planet is considered scavenged if any drone succeeeds and begins the return trip to your ship.  This means if they are all destroyed due to high risk, you can try again.  It also means if 1 out of 10 launched drones succeeds or you leave the sector before the drones return to your ship and drop loot, you will need to wait for the cooldown period.  
 
