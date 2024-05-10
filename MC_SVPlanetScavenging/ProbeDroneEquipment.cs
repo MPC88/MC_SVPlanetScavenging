@@ -131,6 +131,17 @@ namespace MC_SVPlanetScavenging
             __result = ae;
             return false;
         }
+
+        [HarmonyPatch(typeof(GameData), nameof(GameData.CreateDefaultChar))]
+        [HarmonyPostfix]
+        private static void GameDataCreateDefaultChar_Post()
+        {
+            if (PChar.Char != null && PChar.Char.HasPerk(324))
+            {
+                PChar.Char.AddBlueprint(2, id_mkI, 1f);
+                PChar.Char.SortBlueprints();
+            }
+        }
     }
 
     public class AE_ProbeDroneBay : ActiveEquipment
