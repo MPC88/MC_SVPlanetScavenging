@@ -132,6 +132,10 @@ namespace MC_SVPlanetScavenging
 			scanning.quality = quality + exp;
 			scanning.risk = risk - tec >= 0 ? risk - tec : 0;
 			scanning.timeScanned = GameData.timePlayed;
+
+			if (Main.data == null)
+				Main.data = new PersistentData();
+			
 			Main.data.planetDatas.Add(scanning);
 			InfoPanelControl.inst.ShowWarning("Scan complete.  " + 
 				"Quality: " + Math.Round(scanning.quality * 100, 2) + " (" + Math.Round(quality * 100, 2) + " + " + Math.Round(exp * 100, 2) + " from explorer)\n" + 

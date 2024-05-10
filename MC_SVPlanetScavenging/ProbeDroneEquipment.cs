@@ -165,7 +165,10 @@ namespace MC_SVPlanetScavenging
                         x = planetControl.planetData.x,
                         y = planetControl.planetData.y
                     };
-                    
+
+                    if (Main.data == null)
+                        Main.data = new PersistentData();
+
                     PersistentData.PlanetData pdExisting = Main.data.GetData(planetData);
                     if (pdExisting == null)
                     {
