@@ -33,13 +33,6 @@ namespace MC_SVPlanetScavenging
         private void Update()
         {
             ScanningControl.Update();
-            if(Input.GetKeyDown(KeyCode.O))
-            {
-                GameManager.instance.Player.GetComponent<SpaceShip>().cs.cargo.Add(
-                    new CargoItem(2, ProbeDroneEquipment.id_mkI, 0, 1, -1));
-                GameManager.instance.Player.GetComponent<SpaceShip>().cs.cargo.Add(
-                    new CargoItem(2, ProbeDroneEquipment.id_mkII, 0, 1, -1));
-            }
         }
 
         [HarmonyPatch(typeof(GameManager), "Start")]
