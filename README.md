@@ -26,7 +26,9 @@ The probe drone bays provide scavenging loot bonuses.
 - Drone speed buffs apply to accelerate the retrieval phase.  They go faster.  
 - Drone hp bonus buffs provide a chance to save if the risk roll fails.  The save chance is BonusHP/2 percent chance, so the T3 ship enhancement of +60hp = 30% save.  
 - As scavenging loot drops, all scavenging loot bonuses and skills apply (e.g. engineering skill tree).  
-
+- Explorer XP gained when special debris field level loot is rolled (same as discovering special debris field).
+- Tech XP gained after scanning (as-per debris field of sector level).
+  
 Note that buffs from explorer (to quality) and tech knowledge (to risk reduction) are still randomised.  Your level just dictates the maximum bonus, but you can still have a bad day.  
   
 Install  
@@ -38,6 +40,6 @@ Install
   
 Mod Info
 ======
-Probe Drone Bay ID = 30001
+Probe Drone Bay ID = 30001  
 Probe Drone Bay Mk.II ID = 30002
   
