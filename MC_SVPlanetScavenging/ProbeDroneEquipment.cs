@@ -158,14 +158,14 @@ namespace MC_SVPlanetScavenging
             {
                 PlanetControl planetControl = null;
                 if (ScanningControl.CheckForPlanet(PlayerControl.inst, out planetControl))
-                {
+                {                    
                     PersistentData.PlanetData planetData = new PersistentData.PlanetData()
                     {
                         sector = GameData.data.currentSectorIndex,
                         x = planetControl.planetData.x,
                         y = planetControl.planetData.y
                     };
-
+                    
                     PersistentData.PlanetData pdExisting = Main.data.GetData(planetData);
                     if (pdExisting == null)
                     {

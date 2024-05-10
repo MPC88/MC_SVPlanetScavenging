@@ -16,6 +16,12 @@ namespace MC_SVPlanetScavenging
 
         internal PlanetData GetData(PlanetData pd)
         {
+            if (planetDatas == null)
+            {
+                planetDatas = new List<PlanetData>();
+                return null;
+            }
+
             foreach (PlanetData p in planetDatas)
                 if(p.SamePlanetAs(pd))
                     return p;
