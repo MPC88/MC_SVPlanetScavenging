@@ -46,9 +46,7 @@ namespace MC_SVPlanetScavenging
         [HarmonyPostfix]
         private static void PlanetControlSetupPlanet_Post(GameManager __instance)
         {
-            for (int i = 0; i < 32; i++)
-                LayerMask.LayerToName(i);
-            SphereCollider sc = __instance.planets.basePlanet.transform.GetChild(0).gameObject.AddComponent<SphereCollider>();
+            __instance.planets.basePlanet.transform.GetChild(0).gameObject.AddComponent<SphereCollider>();
             __instance.planets.basePlanet.transform.GetChild(0).gameObject.layer = planetLayer;            
         }
 
