@@ -60,7 +60,7 @@ namespace MC_SVPlanetScavenging
 							}
 							else if (pdExisting.scavenged)
 								InfoPanelControl.inst.ShowWarning("Planet already scavenged.  Cooldown: " +
-									(((pdExisting.timeScanned + (scavengeCD * 60f)) - GameData.timePlayed) / 60), 2, false);
+									Math.Round(((pdExisting.timeScanned + (scavengeCD * 60f)) - GameData.timePlayed) / 60, 2) + " minutes.", 2, false);
 							else
 								InfoPanelControl.inst.ShowWarning("Planet already scanned.  Quality: " +
 								Math.Round(pdExisting.quality * 100, 2) + ", Risk: " + Math.Round(pdExisting.risk * 100, 2),
@@ -123,15 +123,16 @@ namespace MC_SVPlanetScavenging
 		}
 
 		internal static void FinishScanning()
-        {			
+        {
+            PChar.TechLevelUp(GameData.data.sectors[scanning.sector].level, 3, 0f);
+
 			float quality = UnityEngine.Random.Range(0.1f, 0.35f);
 			float exp = UnityEngine.Random.Range(0f, PChar.Explorer(true) / 100f);
-
 			float risk = UnityEngine.Random.Range(0.1f, 0.9f);
 			float tec = UnityEngine.Random.Range(0f, PChar.TechLevel() / 100f);
 			scanning.quality = quality + exp;
 			scanning.risk = risk - tec >= 0 ? risk - tec : 0;
-			scanning.timeScanned = GameData.timePlayed;
+			scanning.timeScanned = GameData.timePlayed;		
 
 			if (Main.data == null)
 				Main.data = new PersistentData();

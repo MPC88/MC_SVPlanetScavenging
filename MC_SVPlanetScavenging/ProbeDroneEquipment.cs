@@ -297,6 +297,7 @@ namespace MC_SVPlanetScavenging
                     {
                         if (UnityEngine.Random.Range(0f, 1f) <= pd.quality)
                         {
+                            PChar.ExplorerUp(GameData.data.sectors[pd.sector].level - 4, 0, 0f);
                             special = true;
                             SideInfo.AddMsg("Drone " + ae.ss.activeEquips.IndexOf(ae) + "-" + this.id + " telemetry indicates a valuable find.");
                         }
