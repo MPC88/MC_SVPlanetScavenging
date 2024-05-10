@@ -12,7 +12,7 @@ namespace MC_SVPlanetScavenging
     {
         public const string pluginGuid = "mc.starvalor.planetscavenging";
         public const string pluginName = "SV Planet Scavenging";
-        public const string pluginVersion = "1.0.0";
+        public const string pluginVersion = "1.0.2";
 
         internal const int planetLayer = 20;
         private const string modSaveFolder = "/MCSVSaveData/";  // /SaveData/ sub folder

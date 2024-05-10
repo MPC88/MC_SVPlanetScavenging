@@ -142,6 +142,27 @@ namespace MC_SVPlanetScavenging
                 PChar.Char.SortBlueprints();
             }
         }
+
+        [HarmonyPatch(typeof(SpaceShip), nameof(SpaceShip.CalculateEnergy))]
+        [HarmonyPostfix]
+        private static void SpaceShipCalculateEnergy_Post(SpaceShip __instance)
+        {
+            if (!__instance.IsPlayer)
+                return;
+
+            foreach(ActiveEquipment ae in __instance.activeEquips)
+            {
+                if(ae.active && (ae.equipment.id == id_mkI || ae.equipment.id == id_mkII))
+                {
+                    if (ae is AE_ProbeDroneBay)
+                    {
+                        AE_ProbeDroneBay aepdb = ae as AE_ProbeDroneBay;
+                        if(aepdb.activePDCs != null)
+                            __instance.stats.energyExpend += ae.equipment.energyCost * aepdb.activePDCs.Count;
+                    }                    
+                }
+            }
+        }
     }
 
     public class AE_ProbeDroneBay : ActiveEquipment
@@ -194,8 +215,7 @@ namespace MC_SVPlanetScavenging
                     }
 
                     this.active = true;
-                    ss.CalculateEnergy();
-                    ss.stats.energyExpend += this.equipment.energyCost * activePDCs.Count;
+                    ss.CalculateEnergy();                    
                 }                
             }
             else
