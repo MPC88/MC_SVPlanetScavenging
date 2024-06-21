@@ -122,7 +122,7 @@ namespace MC_SVPlanetScavenging
         [HarmonyPrefix]
         internal static bool ActiveEquipmentAdd_Pre(Equipment equipment, SpaceShip ss, KeyCode key, int rarity, int qnt, ref ActiveEquipment __result)
         {
-            if (equipment.id != id_mkI)
+            if (equipment.id != id_mkI && equipment.id != id_mkII)
                 return true;
 
             AE_ProbeDroneBay ae = MakeActiveEquip(equipment, ss, key, rarity, qnt);
