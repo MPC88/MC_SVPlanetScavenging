@@ -12,7 +12,7 @@ namespace MC_SVPlanetScavenging
     {
         public const string pluginGuid = "mc.starvalor.planetscavenging";
         public const string pluginName = "SV Planet Scavenging";
-        public const string pluginVersion = "1.0.3";
+        public const string pluginVersion = "1.1.0";
 
         internal const int planetLayer = 20;
         private const string modSaveFolder = "/MCSVSaveData/";  // /SaveData/ sub folder
@@ -102,6 +102,17 @@ namespace MC_SVPlanetScavenging
             catch
             {
                 SideInfo.AddMsg("<color=red>Planet scavenging mod load failed.</color>");
+            }
+        }
+
+        [HarmonyPatch(typeof(MenuControl), nameof(MenuControl.DeleteSaveGame))]
+        [HarmonyPrefix]
+        private static void DeleteSave_Pre()
+        {
+            if (GameData.ExistsAnySaveFile(GameData.gameFileIndex) &&
+                File.Exists(Application.dataPath + GameData.saveFolderName + modSaveFolder + modSaveFilePrefix + GameData.gameFileIndex.ToString("00") + ".dat"))
+            {
+                File.Delete(Application.dataPath + GameData.saveFolderName + modSaveFolder + modSaveFilePrefix + GameData.gameFileIndex.ToString("00") + ".dat");
             }
         }
     }
