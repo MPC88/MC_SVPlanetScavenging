@@ -25,7 +25,7 @@ namespace MC_SVPlanetScavenging
 			if (player == null)
 				player = (Player)typeof(PlayerControl).GetField("player", AccessTools.all).GetValue(__instance);
 
-			if (player != null && player.GetButtonDown("Scavenge"))
+			if (player != null && player.GetButtonDown("Interact"))
 			{
 				PlanetControl planetControl;
 				if (CheckForPlanet(__instance, out planetControl))
