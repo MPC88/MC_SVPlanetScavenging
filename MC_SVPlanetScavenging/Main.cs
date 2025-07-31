@@ -4,6 +4,7 @@ using HarmonyLib;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace MC_SVPlanetScavenging
 {
@@ -12,11 +13,12 @@ namespace MC_SVPlanetScavenging
     {
         public const string pluginGuid = "mc.starvalor.planetscavenging";
         public const string pluginName = "SV Planet Scavenging";
-        public const string pluginVersion = "1.1.1";
+        public const string pluginVersion = "1.2.0";
 
         internal const int planetLayer = 20;
         private const string modSaveFolder = "/MCSVSaveData/";  // /SaveData/ sub folder
         private const string modSaveFilePrefix = "PlanetScavenging_"; // modSaveFilePrefixNN.dat
+        private const string languageFilename = "\\MC_SVPlanetScavengingLang.txt";
 
         internal static PersistentData data = null;
         
@@ -28,6 +30,9 @@ namespace MC_SVPlanetScavenging
             Harmony.CreateAndPatchAll(typeof(Main));
             Harmony.CreateAndPatchAll(typeof(ScanningControl));
             Harmony.CreateAndPatchAll(typeof(ProbeDroneEquipment));
+
+            string pluginfolder = System.IO.Path.GetDirectoryName(GetType().Assembly.Location);
+            Language.Load(pluginfolder + languageFilename);
         }
 
         private void Update()
@@ -101,7 +106,7 @@ namespace MC_SVPlanetScavenging
             }
             catch
             {
-                SideInfo.AddMsg("<color=red>Planet scavenging mod load failed.</color>");
+                SideInfo.AddMsg("<color=red>" + Language.loadFailed + "</color>");
             }
         }
 

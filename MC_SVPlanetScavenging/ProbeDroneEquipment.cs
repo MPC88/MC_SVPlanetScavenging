@@ -7,11 +7,10 @@ namespace MC_SVPlanetScavenging
 {
     internal class ProbeDroneEquipment
     {
-        internal const int id_mkI = 30001;
-        internal const string equipmentName_mkI = "Probe Drone Bay";
+        internal const int id_mkI = 30001;        
         internal const int id_mkII = 30002;
+        internal const string equipmentName_mkI = "Probe Drone Bay";
         internal const string equipmentName_mkII = "Probe Drone Bay Mk.II";
-        internal const string description = "Used for planetary surface scavenging.  These drones cannot be recalled, but can report on mission progress.\n\nLaunched drones will complete their task and return to mothership as long as it remains in sector.";
 
         [HarmonyPatch(typeof(EquipmentDB), "LoadDatabaseForce")]
         [HarmonyPostfix]
@@ -54,8 +53,8 @@ namespace MC_SVPlanetScavenging
             equipment.defaultKey = KeyCode.Alpha1;
             equipment.requiredItemID = refEq.requiredItemID;
             equipment.requiredQnt = 5;
-            equipment.equipName = equipmentName_mkI;
-            equipment.description = description;
+            equipment.equipName = Language.equipmentName_mkI;
+            equipment.description = Language.equipmentDescription;
             equipment.craftingMaterials = refEq.craftingMaterials;
             equipment.buff = null;
 
@@ -94,8 +93,8 @@ namespace MC_SVPlanetScavenging
             equipment.defaultKey = KeyCode.Alpha1;
             equipment.requiredItemID = refEq.requiredItemID;
             equipment.requiredQnt = 5;
-            equipment.equipName = equipmentName_mkII;
-            equipment.description = description;
+            equipment.equipName = Language.equipmentName_mkII;
+            equipment.description = Language.equipmentDescription;
             equipment.craftingMaterials = refEq.craftingMaterials;
             equipment.buff = null;
 
@@ -193,13 +192,13 @@ namespace MC_SVPlanetScavenging
                     PersistentData.PlanetData pdExisting = Main.data.GetData(planetData);
                     if (pdExisting == null)
                     {
-                        InfoPanelControl.inst.ShowWarning("Planet not scanned.  Use scavenge to perform scanning.", 1, playAudio: false);
+                        InfoPanelControl.inst.ShowWarning(Language.planetNotScannedWarning, 1, playAudio: false);
                         return;
                     }
 
                     if (pdExisting.scavenged)
                     {
-                        InfoPanelControl.inst.ShowWarning("You have already scavenged all promising locations.", 1, playAudio: false);
+                        InfoPanelControl.inst.ShowWarning(Language.planetAlreadyScavengedWarning, 1, playAudio: false);
                         return;
                     }
 
@@ -211,7 +210,7 @@ namespace MC_SVPlanetScavenging
                         if (ss.cs.ConsumeItem(3, this.equipment.requiredItemID, this.equipment.requiredQnt, -1) > -1)
                             InstantiateDrone();
                         else
-                            InfoPanelControl.inst.ShowWarning("Insufficient drone parts.", 1, false);
+                            InfoPanelControl.inst.ShowWarning(Language.insufficientDronePartsWarning, 1, false);
                     }
 
                     this.active = true;
@@ -221,7 +220,7 @@ namespace MC_SVPlanetScavenging
             else
             {
                 foreach(ProbeDroneController pdc in activePDCs)
-                    SideInfo.AddMsg("Drone " + ss.activeEquips.IndexOf(this) + "-" + pdc.id + ": " + pdc.Report());
+                    SideInfo.AddMsg(Language.drone + " " + ss.activeEquips.IndexOf(this) + "-" + pdc.id + ": " + pdc.Report());
             }            
         }
 
@@ -246,7 +245,7 @@ namespace MC_SVPlanetScavenging
         internal void NotifyDone(ProbeDroneController pdc, bool lost)
         {
             if (lost)
-                SideInfo.AddMsg("<color=red>Drone " + ss.activeEquips.IndexOf(this) + "-" + pdc.id + ": Lost contact.</color>");
+                SideInfo.AddMsg("<color=red>" + Language.drone + " " + ss.activeEquips.IndexOf(this) + "-" + pdc.id + ": " + Language.lostContact + ".</color>");
 
             if (this.activePDCs.Contains(pdc))
                 this.activePDCs.Remove(pdc);
@@ -319,7 +318,7 @@ namespace MC_SVPlanetScavenging
                         {
                             PChar.ExplorerUp(GameData.data.sectors[pd.sector].level - 4, 0, 0f);
                             special = true;
-                            SideInfo.AddMsg("Drone " + ae.ss.activeEquips.IndexOf(ae) + "-" + this.id + " telemetry indicates a valuable find.");
+                            SideInfo.AddMsg(Language.drone + " " + ae.ss.activeEquips.IndexOf(ae) + "-" + this.id + " " + Language.valuableFind + ".");
                         }
                         pd.scavenged = true;
                         returning = true;
@@ -372,7 +371,7 @@ namespace MC_SVPlanetScavenging
                 }
                 if (owner.CompareTag("Player"))
                 {
-                    owner.hpBarControl.ShowFloatingText("Drone Parts", 3, 0f);
+                    owner.hpBarControl.ShowFloatingText(Language.droneParts, 3, 0f);
                 }
             }
             if (ae.active)
@@ -382,9 +381,9 @@ namespace MC_SVPlanetScavenging
         public string Report()
         {
             float dist = Vector3.Distance(this.gameObject.transform.position, target);
-            string inoutMsg = returning ? "Returning to mothership" : "Approaching target";
-            string distMsg = " | Distance: " + Math.Round(dist, 2).ToString();
-            string etaMsg = " | ETA: " + Math.Round(dist/baseSpeed, 2).ToString() + "s";
+            string inoutMsg = returning ? Language.returning : Language.approaching;
+            string distMsg = " | " + Language.distance + ": " + Math.Round(dist, 2).ToString();
+            string etaMsg = " | " + Language.eta + ": " + Math.Round(dist/baseSpeed, 2).ToString() + " " + Language.seconds;
 
             return inoutMsg + distMsg + etaMsg;
         }

@@ -59,11 +59,11 @@ namespace MC_SVPlanetScavenging
 								StartScan(planetControl.transform, pd);
 							}
 							else if (pdExisting.scavenged)
-								InfoPanelControl.inst.ShowWarning("Planet already scavenged.  Cooldown: " +
-									Math.Round(((pdExisting.timeScanned + (scavengeCD * 60f)) - GameData.timePlayed) / 60, 2) + " minutes.", 2, false);
+								InfoPanelControl.inst.ShowWarning(Language.planetAlreadyScavenged + ".  " + Language.cooldown + ": " +
+									Math.Round(((pdExisting.timeScanned + (scavengeCD * 60f)) - GameData.timePlayed) / 60, 2) + " " + Language.minutes + ".", 2, false);
 							else
-								InfoPanelControl.inst.ShowWarning("Planet already scanned.  Quality: " +
-								Math.Round(pdExisting.quality * 100, 2) + ", Risk: " + Math.Round(pdExisting.risk * 100, 2),
+								InfoPanelControl.inst.ShowWarning(Language.planetAlreadyScanned + ".  " + Language.quality + ": " +
+								Math.Round(pdExisting.quality * 100, 2) + ", " + Language.risk + ": " + Math.Round(pdExisting.risk * 100, 2),
 								2, false);
 						}						
 					}
@@ -100,7 +100,7 @@ namespace MC_SVPlanetScavenging
 			scanTime = 2.5f / (1f + num);
 			scanLight.GetComponent<DestroyByTime>().lifetime = scanTime;
 			scanLight.GetComponent<ModelRotator>().rotationVelocity = new Vector3(0f, 72f * (1f + num), 0f);
-			InfoPanelControl.inst.ShowWarning("Scanning planet at x:" + pd.x + " y:" + pd.y + " in sector " + pd.sector, 2, false);
+			InfoPanelControl.inst.ShowWarning(Language.scanningPlanetAt + " x:" + pd.x + " y:" + pd.y + " " + Language.inSector + " " + pd.sector, 2, false);
 			scanning = pd;
 		}
 
@@ -111,7 +111,7 @@ namespace MC_SVPlanetScavenging
 				scanTime -= Time.deltaTime;
 				if (Vector3.Distance(scanStartPosition, GameManager.instance.Player.transform.position) > 6f)
 				{
-					InfoPanelControl.inst.ShowWarning("Scanning aborted.  Hold " + GameManager.instance.GetKeyBound(3) + " to stabalise ship.", 1, playAudio: false);
+					InfoPanelControl.inst.ShowWarning(Language.scanningAborted + ".  " + Language.hold + " " + GameManager.instance.GetKeyBound(3) + " " + Language.toStabaliseShip + ".", 1, playAudio: false);
 					scanning = null;
 					GameObject.Destroy(scanLight);
 				}
@@ -138,9 +138,9 @@ namespace MC_SVPlanetScavenging
 				Main.data = new PersistentData();
 			
 			Main.data.planetDatas.Add(scanning);
-			InfoPanelControl.inst.ShowWarning("Scan complete.  " + 
-				"Quality: " + Math.Round(scanning.quality * 100, 2) + " (" + Math.Round(quality * 100, 2) + " + " + Math.Round(exp * 100, 2) + " from explorer)\n" + 
-				"Risk: " + Math.Round(scanning.risk * 100, 2) + " (" + Math.Round(risk * 100, 2) + " - " + Math.Round(tec * 100, 2) + " from tech)",
+			InfoPanelControl.inst.ShowWarning(Language.scanComplete + ".  " + 
+				Language.quality + ": " + Math.Round(scanning.quality * 100, 2) + " (" + Math.Round(quality * 100, 2) + " + " + Math.Round(exp * 100, 2) + " " + Language.fromExplorer + ")\n" + 
+				Language.risk + ": " + Math.Round(scanning.risk * 100, 2) + " (" + Math.Round(risk * 100, 2) + " - " + Math.Round(tec * 100, 2) + " " + Language.fromTech +")",
 								2, false);
 			scanning = null;
 		}
