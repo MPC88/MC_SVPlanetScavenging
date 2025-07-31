@@ -40,7 +40,10 @@ namespace MC_SVPlanetScavenging
             equipment.sortPower = refEq.sortPower;
             equipment.massChange = refEq.massChange;
             equipment.type = refEq.type;
-            equipment.effects = new List<Effect>() { new Effect() { type = 32, description = "", mod = 1f, value = 3f, uniqueLevel = 0 } };
+            equipment.effects = new List<Effect>() { 
+                new Effect() { type = 18, description = "", mod = 1f, value = 1f, uniqueLevel = 0 },
+                new Effect() { type = 32, description = "", mod = 1f, value = 3f, uniqueLevel = 0 } 
+            };
             equipment.uniqueReplacement = refEq.uniqueReplacement;
             equipment.rarityMod = 1.2f;
             equipment.sellChance = refEq.sellChance;
@@ -80,7 +83,10 @@ namespace MC_SVPlanetScavenging
             equipment.sortPower = refEq.sortPower;
             equipment.massChange = refEq.massChange;
             equipment.type = refEq.type;
-            equipment.effects = new List<Effect>() { new Effect() { type = 32, description = "", mod = 1f, value = 6f, uniqueLevel = 0 } };
+            equipment.effects = new List<Effect>() {
+                new Effect() { type = 18, description = "", mod = 1f, value = 1f, uniqueLevel = 0 },
+                new Effect() { type = 32, description = "", mod = 1f, value = 6f, uniqueLevel = 0 } 
+            };
             equipment.uniqueReplacement = refEq.uniqueReplacement;
             equipment.rarityMod = 1.2f;
             equipment.sellChance = refEq.sellChance;
