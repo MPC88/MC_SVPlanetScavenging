@@ -40,7 +40,7 @@ Install
 
 Language  
 =====  
-Language file is just line separated .txt.  Change to whatever you wish.  The only item you can't change is the market search window title.  
+Language file is just line separated .txt.  Change to whatever you wish.  
     
 Language files can be found: https://github.com/MPC88/MC_SVPlanetScavenging/tree/master/LanguageFiles
   
