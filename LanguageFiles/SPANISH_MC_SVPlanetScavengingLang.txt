@@ -1,0 +1,30 @@
+Error al cargar el mod de Saqueadores de planetas.
+Bahía de Drones Sonda
+Bahía de Drones Sonda Mk.II
+Se utilizan para la búsqueda sobre la superficie planetaria. Estos drones no pueden ser retirados, pero pueden informar sobre el progreso de la misión.\n\nLos drones lanzados completarán su tarea y regresarán a tu nave siempre y cuando ésta permanezca en el sector.
+Planeta no escaneado. Usa la función de búsqueda para escanear.
+Ya has explorado todos los lugares prometedores.
+No hay suficientes partes de dron.
+Dron
+Contacto perdido
+telemetría indica un hallazgo valioso
+Partes de dron
+Regresando a la nave
+Acercándose al objetivo
+Distancia
+Tiempo estimado
+segundos
+El planeta ya ha sido saqueado
+Enfriamiento
+minutos
+El planeta ya ha sido escaneado
+Calidad
+Riesgo
+Escaneando planeta en
+en el sector
+Escaneo abortado
+Mantenga la tecla
+para estabilizar la nave
+Escaneo completo
+Nivel de exploración
+Nivel de tecnología
