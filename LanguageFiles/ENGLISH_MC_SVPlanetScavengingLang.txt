@@ -24,7 +24,7 @@ Scanning planet at
 in sector
 Scanning aborted
 Hold
-to stabalise ship
+to stabilise ship
 Scan complete
 from explorer
 from tech
