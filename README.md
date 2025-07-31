@@ -36,7 +36,15 @@ Install
 1. Install BepInEx - https://docs.bepinex.dev/articles/user_guide/installation/index.html Stable version 5.4.21 x86.  
 2. Run the game at least once to initialise BepInEx and quit.  
 3. Download latest mod release.  
-4. Place MC_SVPlanetScavenging.dll in .\SteamLibrary\steamapps\common\Star Valor\BepInEx\plugins\  
+4. Place MC_SVPlanetScavenging.dll and MC_SVSelectNearestSectorWith.txt in .\SteamLibrary\steamapps\common\Star Valor\BepInEx\plugins\  
+
+Language  
+=====  
+Language file is just line separated .txt.  Change to whatever you wish.  The only item you can't change is the market search window title.  
+    
+Language files can be found: https://github.com/MPC88/MC_SVPlanetScavenging/tree/master/LanguageFiles
+  
+Download the file (or copy paste content).  Make sure file is renamed to remove "LANGUAGE_" from the filename e.g: "ENGLISH_MC_SVPlanetScavengingLang.txt" becomes "MC_SVPlanetScavengingLang.txt".  
   
 Mod Info
 ======
