@@ -1,0 +1,30 @@
+Planet scavenging mod load failed.
+Probe Drone Bay
+Probe Drone Bay Mk.II
+Used for planetary surface scavenging.  These drones cannot be recalled, but can report on mission progress.\n\nLaunched drones will complete their task and return to mothership as long as it remains in sector.
+Planet not scanned.  Use scavenge to perform scanning.
+You have already scavenged all promising locations.
+Insufficient drone parts.
+Drone
+Lost contact
+telemetry indicates a valuable find
+Drone Parts
+Returning to mothership
+Approaching target
+Distance
+ETA
+seconds
+Planet already scavenged
+Cooldown
+minutes
+Planet already scanned
+Quality
+Risk
+Scanning planet at
+in sector
+Scanning aborted
+Hold
+to stabalise ship
+Scan complete
+from explorer
+from tech
