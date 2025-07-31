@@ -46,7 +46,7 @@ Language files can be found: https://github.com/MPC88/MC_SVPlanetScavenging/tree
   
 Download the file (or copy paste content).  Make sure file is renamed to remove "LANGUAGE_" from the filename e.g: "ENGLISH_MC_SVPlanetScavengingLang.txt" becomes "MC_SVPlanetScavengingLang.txt".  
 
-Spanish translation by Khal Mika.  
+Spanish translation by KhalMika.  
   
 Mod Info
 ======
